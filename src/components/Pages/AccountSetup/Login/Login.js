@@ -1,12 +1,29 @@
-import { Button, Container, Typography } from '@mui/material';
-import React from 'react';
+import { Button, Container, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import useFirebase from '../../../../hooks/useFirebase';
 import initFirebase from '../../../Firebase/firebase.init';
 
 initFirebase()
 
 const Login = () => {
-    const { googleSignIn } = useFirebase()
+    const { googleSignIn, loginUser } = useFirebase()
+    const [loginData, setLoginData] = useState({})
+
+    const loginInfo = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const updateLoginData = { ...loginData }
+        updateLoginData[field] = value
+        setLoginData(updateLoginData)
+    }
+    
+    const handleLogin = e => {
+        loginUser(loginData.email, loginData.password)
+        alert('Update Information')
+        e.preventDefault()
+    }
+
     const handleGoogleSignIn = () => {
         googleSignIn()
     }
@@ -16,17 +33,18 @@ const Login = () => {
                 <Typography variant="h4" gutterBottom>
                     Login Account
                 </Typography>
-                {/* <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin}>
                         <TextField
                             id="standard-basic"
-                            sx={{ width: '75%', mt: 2 }}
+                            sx={{ width: '25%', mt: 2 }}
                             name='email'
                             onChange={loginInfo}
                             label="Your email"
                             variant="standard" />
+                        <br />
                         <TextField
                             id="standard-password-input"
-                            sx={{ width: '75%', mt: 2 }}
+                            sx={{ width: '25%', mt: 2 }}
                             name='password'
                             onChange={loginInfo}
                             label="Password"
@@ -34,11 +52,13 @@ const Login = () => {
                             autoComplete="current-password"
                             variant="standard"
                         /><br />
+
                         <Button variant="contained" type="submit" sx={{ mt: 3 }}>Login</Button>
+
                         <NavLink style={{ textDecoration: 'none', marginTop: '40px' }} to='/register'><Typography style={{ marginTop: '10px' }} variant="button" display="block" gutterBottom>
-                            New user? Please register an account
+                            New user? Please register
                         </Typography></NavLink>
-                    </form> */}
+                    </form>
                 <p>---------------------</p>
                 <Button onClick={handleGoogleSignIn} variant="outlined" sx={{ mt: 3, border: 1, borderColor: 'text.primary', color: 'black', width: '25%' }}>Google Sign-in</Button>
             </Container>
