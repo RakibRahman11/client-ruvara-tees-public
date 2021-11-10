@@ -13,8 +13,8 @@ import Payment from "./components/Pages/Dashboard/Dashboard/Payment/Payment";
 import Review from "./components/Pages/Dashboard/Dashboard/Review/Review";
 import Products from "./components/Pages/Home/AllProducts/Products/Products";
 import HomePage from "./components/Pages/Home/HomePage/HomePage";
+import PlaceOrder from "./components/Pages/Order/PlaceOrder/PlaceOrder";
 import PageError from "./components/Pages/PageError/PageError";
-import Navigation from "./components/Shared/Navigation/Navigation";
 
 function App() {
   return (
@@ -50,6 +50,9 @@ function App() {
           </Route>
           <Route exact path='/products'>
             <Products></Products>
+          </Route>
+          <Route exact path='/PlaceOrders/:id'>
+            <PlaceOrder></PlaceOrder>
           </Route>
           <Route path='*'>
             <PageError></PageError>

@@ -31,54 +31,54 @@ const Registration = () => {
         <div>
             <Navigation></Navigation>
             <Container sx={{ mt: 5 }}>
-            <Typography variant="h4" gutterBottom>
-                Registration
-            </Typography>
-            <form onSubmit={handleLogin}>
-                <TextField
-                    id="standard-basic"
-                    sx={{ width: '25%', mt: 2 }}
-                    name='name'
-                    onBlur={loginInfo}
-                    label="Your name"
-                    variant="standard" />
-                <br />
-                <TextField
-                    id="standard-basic"
-                    sx={{ width: '25%', mt: 2 }}
-                    name='email'
-                    type='email'
-                    onBlur={loginInfo}
-                    label="Your email"
-                    variant="standard" />
-                <br />
-                <TextField
-                    id="standard-password-input"
-                    sx={{ width: '25%', mt: 2 }}
-                    name='password'
-                    onBlur={loginInfo}
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="standard"
-                />
-                <br />
-                <TextField
-                    id="standard-password-input"
-                    sx={{ width: '25%', mt: 2 }}
-                    name='retypePassword'
-                    onBlur={loginInfo}
-                    label="Retype the password"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="standard"
-                /><br />
-                <Button variant="contained" type="submit" sx={{ mt: 3 }}>Register</Button>
-                <NavLink style={{ textDecoration: 'none' }} to='/login'><Typography style={{ marginTop: '10px' }} variant="button" display="block" gutterBottom>
-                    Already an account? Please login
-                </Typography></NavLink>
-            </form>
-        </Container>
+                <Typography variant="h4" gutterBottom>
+                    Registration
+                </Typography>
+                <form onSubmit={handleLogin}>
+                    <TextField
+                        id="standard-basic"
+                        sx={{ width: '25%', mt: 2 }}
+                        name='name'
+                        onBlur={loginInfo}
+                        label="Your name"
+                        variant="standard" />
+                    <br />
+                    <TextField
+                        id="standard-basic"
+                        sx={{ width: '25%', mt: 2 }}
+                        name='email'
+                        type='email'
+                        onBlur={loginInfo}
+                        label="Your email"
+                        variant="standard" />
+                    <br />
+                    <TextField
+                        id="standard-password-input"
+                        sx={{ width: '25%', mt: 2 }}
+                        name='password'
+                        onBlur={loginInfo}
+                        label="Password"
+                        type="password"
+                        autoComplete="current-password"
+                        variant="standard"
+                    />
+                    <br />
+                    <TextField
+                        id="standard-password-input"
+                        sx={{ width: '25%', mt: 2 }}
+                        name='retypePassword'
+                        onBlur={loginInfo}
+                        label="Retype the password"
+                        type="password"
+                        autoComplete="current-password"
+                        variant="standard"
+                    /><br />
+                    <Button variant="contained" type="submit" sx={{ mt: 3 }}>Register</Button>
+                    <NavLink style={{ textDecoration: 'none' }} to='/login'><Typography style={{ marginTop: '10px' }} variant="button" display="block" gutterBottom>
+                        Already an account? Please login
+                    </Typography></NavLink>
+                </form>
+            </Container>
         </div>
     );
 };
