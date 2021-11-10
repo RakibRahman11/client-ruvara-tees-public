@@ -4,13 +4,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
-import initFirebase from '../../Firebase/firebase.init';
-import useFirebase from '../../../hooks/useFirebase';
 import { Button } from '@mui/material';
+import useFirebase from '../../../../../hooks/useFirebase';
+import initFirebase from '../../../../Firebase/firebase.init';
 
 initFirebase()
 
-const Navigation = () => {
+const DashboardNav = () => {
     const { user, logOut } = useFirebase()
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -19,20 +19,27 @@ const Navigation = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <NavLink style={{ color: 'white', textDecoration: 'none' }} to='/home'>Ruvara Tees</NavLink>
                     </Typography>
-                    <NavLink style={{ color: 'white', textDecoration: 'none' }} to='/products'>Products</NavLink>
+
+                    <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/admin'>Admin</NavLink>
+
+                    <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/myOrders'>Orders</NavLink>
+
+                    <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/review'>Review</NavLink>
+
+                    <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/payment'>Payment</NavLink>
                     {
                         user?.email ?
                             <div>
-                                <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }} to='/dashboard'>Dashboard</NavLink>
-                                <Button onClick={logOut} style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }}>{user?.displayName}, Logout</Button>
+                                <Button onClick={logOut} style={{ color: 'white', textDecoration: 'none'}}>Logout</Button>
                             </div>
                             :
-                            <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }} to='/login'>Login</NavLink>
+                            <NavLink style={{ color: 'white', textDecoration: 'none'}} to='/login'>Login</NavLink>
                     }
+
                 </Toolbar>
             </AppBar>
         </Box>
     );
 };
 
-export default Navigation;
+export default DashboardNav;

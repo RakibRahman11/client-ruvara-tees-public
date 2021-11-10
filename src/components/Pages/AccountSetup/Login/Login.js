@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useFirebase from '../../../../hooks/useFirebase';
 import initFirebase from '../../../Firebase/firebase.init';
+import Navigation from '../../../Shared/Navigation/Navigation';
 
 initFirebase()
 
@@ -29,6 +30,7 @@ const Login = () => {
     }
     return (
         <div>
+            <Navigation></Navigation>
             <Container sx={{ mt: 5 }}>
                 <Typography variant="h4" gutterBottom>
                     Login Account
