@@ -35,7 +35,7 @@ const AddProduct = () => {
         <div>
             <Container sx={{ mt: 5 }}>
                 <Typography variant="h4" gutterBottom>
-                    Add the product
+                    Add the Product
                 </Typography>
                 <form onSubmit={handleProduct}>
                     <TextField
@@ -52,6 +52,14 @@ const AddProduct = () => {
                         name='title'
                         onBlur={productDetails}
                         label="Product Title"
+                        variant="standard" />
+                    <br />
+                    <TextField
+                        id="standard-basic"
+                        sx={{ width: '50%', mt: 2 }}
+                        name='price'
+                        onBlur={productDetails}
+                        label="Product Price"
                         variant="standard" />
                     <br />
                     <TextField

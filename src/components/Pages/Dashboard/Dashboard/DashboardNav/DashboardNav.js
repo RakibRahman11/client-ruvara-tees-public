@@ -30,10 +30,10 @@ const DashboardNav = () => {
                     {
                         user?.email ?
                             <div>
-                                <Button onClick={logOut} style={{ color: 'white', textDecoration: 'none'}}>Logout</Button>
+                                <Button onClick={logOut} style={{ color: 'white', textDecoration: 'none' }}>Logout</Button>
                             </div>
                             :
-                            <NavLink style={{ color: 'white', textDecoration: 'none'}} to='/login'>Login</NavLink>
+                            <NavLink style={{ color: 'white', textDecoration: 'none' }} to='/login'>Login</NavLink>
                     }
 
                 </Toolbar>

@@ -24,7 +24,7 @@ const Navigation = () => {
                         user?.email ?
                             <div>
                                 <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }} to='/dashboard'>Dashboard</NavLink>
-                                <Button onClick={logOut} style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }}>{user?.displayName}, Logout</Button>
+                                <Button onClick={logOut} style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }}>{user?.email}, Logout</Button>
                             </div>
                             :
                             <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '20px' }} to='/login'>Login</NavLink>
