@@ -13,14 +13,14 @@ const OrderTable = () => {
     const [products, setProducts] = useState([])
     const [control, setControl] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5000/placeOrder')
+        fetch('https://calm-harbor-77192.herokuapp.com/placeOrder')
             .then(response => response.json())
             .then(json => setProducts(json))
     }, [control])
     const itemDelete = id => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            const uri = `http://localhost:5000/placeOrder/${id}`
+            const uri = `https://calm-harbor-77192.herokuapp.com/placeOrder/${id}`
             fetch(uri, {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" }

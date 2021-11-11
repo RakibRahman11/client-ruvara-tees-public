@@ -15,50 +15,54 @@ import Products from "./components/Pages/Home/AllProducts/Products/Products";
 import HomePage from "./components/Pages/Home/HomePage/HomePage";
 import PlaceOrder from "./components/Pages/Order/PlaceOrder/PlaceOrder";
 import PageError from "./components/Pages/PageError/PageError";
+import PrivateRoute from "./components/Shared/PrivateRoute/PrivateRoute";
+import AuthProvider from "./context/AuthProvider";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <HomePage></HomePage>
-          </Route>
-          <Route exact path='/home'>
-            <HomePage></HomePage>
-          </Route>
-          <Route exact path='/login'>
-            <Login></Login>
-          </Route>
-          <Route exact path='/register'>
-            <Registration></Registration>
-          </Route>
-          <Route exact path='/dashboard'>
-            <Dashboard></Dashboard>
-          </Route>
-          <Route exact path='/myOrders'>
-            <MyOrders></MyOrders>
-          </Route>
-          <Route exact path='/payment'>
-            <Payment></Payment>
-          </Route>
-          <Route exact path='/review'>
-            <Review></Review>
-          </Route>
-          <Route exact path='/admin'>
-            <Admin></Admin>
-          </Route>
-          <Route exact path='/products'>
-            <Products></Products>
-          </Route>
-          <Route exact path='/PlaceOrders/:id'>
-            <PlaceOrder></PlaceOrder>
-          </Route>
-          <Route path='*'>
-            <PageError></PageError>
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <HomePage></HomePage>
+            </Route>
+            <Route exact path='/home'>
+              <HomePage></HomePage>
+            </Route>
+            <Route exact path='/login'>
+              <Login></Login>
+            </Route>
+            <Route exact path='/register'>
+              <Registration></Registration>
+            </Route>
+            <Route exact path='/dashboard'>
+              <Dashboard></Dashboard>
+            </Route>
+            <Route exact path='/myOrders'>
+              <MyOrders></MyOrders>
+            </Route>
+            <Route exact path='/payment'>
+              <Payment></Payment>
+            </Route>
+            <Route exact path='/review'>
+              <Review></Review>
+            </Route>
+            <Route exact path='/admin'>
+              <Admin></Admin>
+            </Route>
+            <Route exact path='/products'>
+              <Products></Products>
+            </Route>
+            <PrivateRoute path='/PlaceOrders/:id'>
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            <Route path='*'>
+              <PageError></PageError>
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

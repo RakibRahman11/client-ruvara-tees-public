@@ -9,7 +9,7 @@ import Comment from '../Comment/Comment';
 const Comments = () => {
     const [comments, setComments] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/comments')
+        fetch('https://calm-harbor-77192.herokuapp.com/comments')
             .then(response => response.json())
             .then(json => setComments(json))
     }, [])
@@ -23,7 +23,7 @@ const Comments = () => {
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
                         comments.map(comment => <Comment
-                            key = { comment?.name }
+                            key={comment?.name}
                             comment={comment}
                         ></Comment>)
                     }

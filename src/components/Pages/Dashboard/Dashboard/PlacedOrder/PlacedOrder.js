@@ -6,7 +6,7 @@ const PlacedOrder = (props) => {
     const [orders, setOrders] = useState([])
     const [control, setControl] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://calm-harbor-77192.herokuapp.com/products')
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [control])
@@ -15,7 +15,7 @@ const PlacedOrder = (props) => {
     const projectDelete = id => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            const uri = `http://localhost:5000/placeOrder/${id}`
+            const uri = `https://calm-harbor-77192.herokuapp.com/placeOrder/${id}`
             fetch(uri, {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" }

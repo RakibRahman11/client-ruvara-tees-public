@@ -10,7 +10,7 @@ import Navigation from '../../../../Shared/Navigation/Navigation';
 const Products = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://calm-harbor-77192.herokuapp.com/products')
             .then(response => response.json())
             .then(json => setProducts(json))
     }, [])

@@ -6,16 +6,20 @@ initFirebase()
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
+    const [admin, setAdmin] = useState(false)
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
     // Create Account (Email, Password)
     const createUser = (email, password, name) => {
-        createUserWithEmailAndPassword(auth, email, password, name)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                setUser(user)
+                // const user = userCredential.user;
+                const newUser = { email, displayName: name }
+                setUser(newUser)
+                saveUser(name, email, 'POST')
+                // setUser(user)
             })
             .catch((error) => {
             });
@@ -34,12 +38,8 @@ const useFirebase = () => {
 
     // GOOGLE Sign In
     const googleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                setUser(result.user)
-            }).catch((error) => {
-                console.log(error.message);;
-            });
+        return signInWithPopup(auth, googleProvider)
+            
     }
 
     // Sign Out the user
@@ -51,6 +51,24 @@ const useFirebase = () => {
         })
 
     }
+
+    const saveUser = (displayName, email, method) => {
+        const users = { displayName, email }
+        // console.log(users);
+        fetch('https://calm-harbor-77192.herokuapp.com/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then()
+    }
+    useEffect(() => {
+        fetch(`https://calm-harbor-77192.herokuapp.com/users/${user.email}`)
+            .then(response => response.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
     // USER State manage
     useEffect(() => {
@@ -66,6 +84,7 @@ const useFirebase = () => {
 
     return {
         user,
+        admin,
         createUser,
         loginUser,
         googleSignIn,

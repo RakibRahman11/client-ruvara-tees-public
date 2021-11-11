@@ -11,7 +11,7 @@ const MyOrders = () => {
     const [myOrder, setMyOrder] = useState([])
     const { user } = useFirebase()
     useEffect(() => {
-        fetch('http://localhost:5000/placeOrder')
+        fetch('https://calm-harbor-77192.herokuapp.com/placeOrder')
             .then(response => response.json())
             .then(data => setMyOrder(data))
     }, [])

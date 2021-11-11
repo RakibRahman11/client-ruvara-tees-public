@@ -15,7 +15,7 @@ const PlaceOrder = () => {
     const { register, handleSubmit, reset } = useForm();
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://calm-harbor-77192.herokuapp.com/products')
             .then(response => response.json())
             .then(data => setOrder(data))
     })
@@ -23,7 +23,7 @@ const PlaceOrder = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        axios.post('http://localhost:5000/placeOrder', data)
+        axios.post('https://calm-harbor-77192.herokuapp.com/placeOrder', data)
             .then(res => {
                 alert('sure to add?');
                 reset();

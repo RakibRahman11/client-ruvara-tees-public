@@ -4,14 +4,16 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
-import initFirebase from '../../Firebase/firebase.init';
-import useFirebase from '../../../hooks/useFirebase';
+// import initFirebase from '../../Firebase/firebase.init';
+// import useFirebase from '../../../hooks/useFirebase';
 import { Button } from '@mui/material';
+import useAuth from '../../../hooks/useAuth';
 
-initFirebase()
+// initFirebase()
 
 const Navigation = () => {
-    const { user, logOut } = useFirebase()
+    const { user, logOut } = useAuth()
+    console.log(user);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{ backgroundColor: 'black' }}>

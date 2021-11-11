@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import DashboardNav from '../DashboardNav/DashboardNav';
 import { Button, Container, TextField, Typography } from '@mui/material';
-import useFirebase from '../../../../../hooks/useFirebase';
-import initFirebase from '../../../../Firebase/firebase.init';
+// import useFirebase from '../../../../../hooks/useFirebase';
+// import initFirebase from '../../../../Firebase/firebase.init';
+import useAuth from '../../../../../hooks/useAuth';
 
-initFirebase()
+// initFirebase()
 
 const Review = () => {
-    const { user } = useFirebase()
+    // const { user } = useFirebase()
+    const { user } = useAuth()
     const [commentData, setCommentData] = useState({})
 
     const commentDetails = (e) => {
@@ -21,7 +23,7 @@ const Review = () => {
     }
 
     const handleComment = e => {
-        fetch('http://localhost:5000/comments', {
+        fetch('https://calm-harbor-77192.herokuapp.com/comments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,6 +59,14 @@ const Review = () => {
                         name='name'
                         onBlur={commentDetails}
                         label="Your Name"
+                        variant="standard" />
+                    <br />
+                    <TextField
+                        id="standard-basic"
+                        sx={{ width: '25%', mt: 2 }}
+                        name='ratings'
+                        onBlur={commentDetails}
+                        label="Please rate the product (out of 5)"
                         variant="standard" />
                     <br />
                     <TextField

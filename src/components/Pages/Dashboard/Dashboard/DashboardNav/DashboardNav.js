@@ -5,13 +5,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
-import useFirebase from '../../../../../hooks/useFirebase';
-import initFirebase from '../../../../Firebase/firebase.init';
+// import useFirebase from '../../../../../hooks/useFirebase';
+// import initFirebase from '../../../../Firebase/firebase.init';
+import useAuth from '../../../../../hooks/useAuth';
 
-initFirebase()
+// initFirebase()
 
 const DashboardNav = () => {
-    const { user, logOut } = useFirebase()
+    // const { user, logOut } = useFirebase()
+    const {user, logOut, admin } = useAuth()
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{ backgroundColor: 'black' }}>
@@ -20,7 +22,9 @@ const DashboardNav = () => {
                         <NavLink style={{ color: 'white', textDecoration: 'none' }} to='/home'>Ruvara Tees</NavLink>
                     </Typography>
 
-                    <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/admin'>Admin</NavLink>
+                    {
+                        admin && <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/admin'>Admin</NavLink>
+                    }
 
                     <NavLink style={{ color: 'white', textDecoration: 'none', marginLeft: '10px' }} to='/myOrders'>Orders</NavLink>
 

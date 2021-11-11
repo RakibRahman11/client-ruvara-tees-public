@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer';
 const HomePage = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://calm-harbor-77192.herokuapp.com/products')
             .then(response => response.json())
             .then(json => setProducts(json.slice(0, 6)))
     }, [])
