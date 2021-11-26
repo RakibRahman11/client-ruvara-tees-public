@@ -46,7 +46,7 @@ const PlaceOrder = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Typography sx={{marginBottom:'20px'}} variant="h5">
+                    <Typography sx={{ marginBottom: '20px' }} variant="h5">
                         Please provide the information
                     </Typography>
                     <div className="d-flex justify-content-center align-items-center">

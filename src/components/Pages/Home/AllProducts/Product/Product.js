@@ -32,7 +32,7 @@ const Product = (props) => {
                     <Typography variant="h5" color="text.secondary">
                         {price}
                     </Typography>
-                    <Link style={{textDecoration:'none'}} to={`/PlaceOrders/${_id}`}><Button sx={{ border:1, borderColor: 'text.primary', color:'black' }} variant='outlined'>Order</Button></Link>
+                    <Link style={{ textDecoration: 'none' }} to={`/PlaceOrders/${_id}`}><Button sx={{ border: 1, borderColor: 'text.primary', color: 'black' }} variant='outlined'>Order</Button></Link>
                 </CardContent>
             </Card>
         </Grid>

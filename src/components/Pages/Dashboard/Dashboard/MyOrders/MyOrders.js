@@ -26,9 +26,9 @@ const MyOrders = () => {
                         products[0] ? <h1 style={{ marginTop: '10px' }}>Thank you for the orders</h1> : <h1 style={{ marginTop: '10px' }}>You don't have any pending order</h1>
                     }
                     <Grid container spacing={2}>
-                            {
-                                products.map(product => <PlacedOrder product={product}></PlacedOrder>)
-                            }
+                        {
+                            products.map(product => <PlacedOrder product={product}></PlacedOrder>)
+                        }
                     </Grid>
 
                 </div >
